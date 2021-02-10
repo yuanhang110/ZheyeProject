@@ -15,4 +15,5 @@ public class User {
      * 头像
      */
     private String headUrl;
+    private String token;
 }

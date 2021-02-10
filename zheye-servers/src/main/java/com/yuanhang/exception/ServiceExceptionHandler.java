@@ -1,7 +1,10 @@
 package com.yuanhang.exception;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.HashMap;
 
@@ -32,22 +35,22 @@ public class ServiceExceptionHandler {
     /***
      * 抛出500错误
      */
-    public HashMap<String, String> errorHandler(Exception e){
-        HashMap<String,String> result = new HashMap<>();
-        result.put("msg",e.getMessage());
+    public HashMap<String, String> errorHandler(Exception e) {
+        HashMap<String, String> result = new HashMap<>();
+        result.put("msg", e.getMessage());
         return result;
     }
 
     @ExceptionHandler(ServiceException.class)
     @ResponseBody
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     /***
      * 抛出500错误
      */
-    public HashMap<String, String> errorHandler(ServiceException e){
-        HashMap<String,String> result = new HashMap<>();
-        result.put("msg",e.getMessage());
-        result.put("code",e.getCode());
+    public HashMap<String, String> errorHandler(ServiceException e) {
+        HashMap<String, String> result = new HashMap<>();
+        result.put("msg", e.getMsg());
+        result.put("code", String.valueOf(e.getCode()));
         return result;
     }
 }
