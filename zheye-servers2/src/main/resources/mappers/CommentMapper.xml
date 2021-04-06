@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.evostar.dao.CommentDAO">
+    <resultMap id="commentList" type="comment">
+        <id property="id" column="id"></id>
+        <result property="content" column="content"></result>
+        <result property="userId" column="user_id"></result>
+        <result property="entityId" column="entity_id"></result>
+        <result property="type" column="type"></result>
+        <result property="createdDate" column="created_date"></result>
+        <result property="status" column="status"></result>
+        <result property="responded" column="responded"></result>
+        <association property="user" javaType="user">
+            <id property="id" column="userId"></id>
+            <result property="name" column="userName"></result>
+            <result property="headUrl" column="userHeadUrl"></result>
+        </association>
+        <association property="responder" javaType="user">
+            <id property="id" column="responderId"></id>
+            <result property="name" column="responderName"></result>
+            <result property="headUrl" column="responderUrl"></result>
+        </association>
+
+    </resultMap>
+    <select id="getCommentListById" resultMap="commentList">
+        select
+            comment.*,
+            user.id as userId,
+            user.name as userName,
+            user.head_url as userHeadUrl,
+            responder.id as responderId,
+            responder.name as responderName,
+            responder.head_url as responderUrl
+        from
+            comment
+        left join
+            `user`
+        on
+            comment.user_id = user.id
+        left join
+            `user` as responder
+        on
+            comment.responded = responder.id
+        where entity_id = #{entityId} and type = #{type}
+        limit #{offset},#{limit}
+    </select>
+
+</mapper>

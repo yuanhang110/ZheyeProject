@@ -31,4 +31,7 @@ public interface UserDAO {
             "(name,password,salt,head_url) values (#{name},#{password},#{salt},#{headUrl})")
     public int addUser(User user);
 
+    @Select("select * from user where id =#{id}")
+    public User selectById(int id);
+
 }

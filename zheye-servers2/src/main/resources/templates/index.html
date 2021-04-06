@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket客户端</title>
+</head>
+
+<body>
+
+<form onsubmit="return false">
+
+    <h4>用户登录：</h4>
+    <input type="text" name="userId" placeholder="请输入用户id" value="1" style="width: 200px">
+    <input type="button" value="登录" onclick="login(this.form.userId.value)">
+
+    <h4>退出登录：</h4>
+    <input type="button" value="退出登录" onclick="logout()">
+
+    <hr>
+    <h4>发送一对一消息:</h4>
+    <input type="text" name="toUserId" placeholder="请输入接收用户的userId" style="width: 200px"><br>
+    <textarea name="message" style="width: 300px;height: 50px"></textarea>
+    <input type="button" value="发送一对一消息" onclick="sendToUser(this.form.toUserId.value, this.form.message.value)">
+
+    <hr>
+    <h4>服务器输出:</h4>
+    <textarea id="responseText" style="width: 300px;height: 250px;"></textarea>
+    <input type="button" onclick="document.getElementById('responseText').value=''" value="清空日志">
+
+</form>
+
+<script type="text/javascript" src="js/codec.js"></script>
+<script type="text/javascript" src="js/dispatch.event.js"></script>
+<script type="text/javascript" src="js/socket.js"></script>
+</body>
+
+</html>

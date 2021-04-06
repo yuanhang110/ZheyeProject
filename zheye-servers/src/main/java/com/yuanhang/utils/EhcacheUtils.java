@@ -26,6 +26,9 @@ public class EhcacheUtils {
         return element.getObjectValue();
     }
 
+    /***
+     * 清除缓存
+     */
     public void clear(String cacheName, String key) {
         Cache cache = ehCacheCacheManager.getCacheManager().getCache(cacheName);
         cache.remove(key);

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.evostar.dao.ChatRecordDAO">
+    <resultMap id="recordList" type="com.evostar.VO.ChatRecordVO">
+        <id property="id" column="id"></id>
+        <result property="content" column="content"></result>
+        <result property="time" column="time"></result>
+        <association property="fromUser" javaType="com.evostar.VO.UserVO">
+            <result property="id" column="fromUserId"></result>
+            <result property="name" column="fromUserName"></result>
+            <result property="headUrl" column="fromUserHeadUrl"></result>
+        </association>
+        <association property="toUser" javaType="com.evostar.VO.UserVO">
+            <result property="id" column="toUserId"></result>
+            <result property="name" column="toUserName"></result>
+            <result property="headUrl" column="toUserHeadUrl"></result>
+        </association>
+    </resultMap>
+    <select id="getChatRecordList" resultMap="recordList">
+        select
+            chat_record.*,
+            fromUser.id as fromUserId,
+            fromUser.name as fromUserName,
+            fromUser.head_url as fromUserHeadUrl,
+            toUser.id as toUserId,
+            toUser.name as toUserName,
+            toUser.head_url as toUserHeadUrl
+        from chat_record
+
+        left join user as fromUser
+        on chat_record.from_user_id = fromUser.id
+
+        left join user as toUser
+        on chat_record.to_user_id = toUser.id
+        where chat_record.id in (
+            select id from chat_record where from_user_id = #{chatUserId} and to_user_id = #{userId}
+            union
+            select id from chat_record where from_user_id = #{userId} and to_user_id = #{chatUserId}
+        )
+        order by chat_record.id desc
+        limit #{offset},#{limit}
+
+    </select>
+</mapper>

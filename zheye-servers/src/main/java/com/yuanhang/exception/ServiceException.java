@@ -1,5 +1,6 @@
 package com.yuanhang.exception;
 
+import com.yuanhang.model.MsgCodeEnum;
 import lombok.Data;
 
 /***
@@ -20,5 +21,10 @@ public class ServiceException extends RuntimeException {
     public ServiceException(int code, String msg) {
         this.code = code;
         this.msg = msg;
+    }
+
+    public ServiceException(MsgCodeEnum msgCodeEnum) {
+        this.code = msgCodeEnum.getCode();
+        this.msg = msgCodeEnum.getMessage();
     }
 }

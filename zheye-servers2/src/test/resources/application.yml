@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:zheye-testing;MODE=MYSQL;DATABASE_TO_UPPER=false;
+    username: root
+    password: 920691910
+    schema: classpath:sql.schema/*.sql
+    initialization-mode: embedded
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+
+mybatis:
+  type-aliases-package: com.evostar.model
+  mapper-locations: mappers/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true

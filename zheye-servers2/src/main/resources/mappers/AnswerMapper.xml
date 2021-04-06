@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.evostar.dao.AnswerDAO">
+    <sql id="table">answer</sql>
+    <resultMap id="answerMap" type="answer">
+        <id property="id" column="id"></id>
+        <result property="userId" column="user_id"></result>
+        <result property="questionId" column="question_id"></result>
+        <result property="createdDate" column="created_date"></result>
+        <result property="reviewNum" column="review_num"></result>
+        <result property="content" column="content"></result>
+        <result property="commentCount" column="comment_count"></result>
+        <result property="supportCount" column="support_count"></result>
+        <result property="unsupportCount" column="unsupport_count"></result>
+        <association property="answer" javaType="user">
+            <id property="id" column="uid"></id>
+            <result property="name" column="uname"></result>
+            <result property="headUrl" column="head_url"></result>
+        </association>
+    </resultMap>
+
+    <select id="getLastAnswerByQuestionId" parameterType="int" resultMap="answerMap">
+        select
+            answer.*,user.id as uid,user.name as uname,user.head_url
+        from
+            <include refid="table"></include>
+        left join
+            `user`
+        on `answer`.user_id = `user`.id
+        where
+            answer.question_id = #{id}
+        order by answer.id desc
+        limit 1
+    </select>
+
+
+
+    <select id="getAnswerListByQidDesc" resultMap="answerMap">
+        select
+        answer.*,user.id as uid,user.name as uname,user.head_url
+        from
+        <include refid="table"></include>
+        left join
+        `user`
+        on `answer`.user_id = `user`.id
+        where
+        answer.question_id = #{id}
+        order by answer.id desc
+        limit #{offset},#{limit}
+    </select>
+
+    <select id="getAnswerById" parameterType="int" resultMap="answerMap">
+        select
+        answer.*,user.id as uid,user.name as uname,user.head_url
+        from
+        <include refid="table"></include>
+        left join
+        `user`
+        on `answer`.user_id = `user`.id
+        where
+        answer.id = #{id}
+        order by answer.id desc
+    </select>
+
+</mapper>

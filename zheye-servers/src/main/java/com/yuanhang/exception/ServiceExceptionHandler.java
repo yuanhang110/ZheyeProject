@@ -53,4 +53,14 @@ public class ServiceExceptionHandler {
         result.put("code", String.valueOf(e.getCode()));
         return result;
     }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public HashMap<String, Object> errorHandler(UnauthorizedException e) {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("msg", e.getMsg());
+        result.put("code", String.valueOf(e.getCode()));
+        return result;
+    }
 }

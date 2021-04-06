@@ -3,5 +3,8 @@ module.exports = {
         proxy: 'http://localhost:8888/api',
         host: 'localhost',
         port: 8080,
+    },
+    configureWebpack: {
+      devtool: 'source-map'
     }
 }

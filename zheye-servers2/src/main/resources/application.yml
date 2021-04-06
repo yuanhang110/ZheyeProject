@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/zheye?characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 920691910
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+
+mybatis:
+  type-aliases-package: com.evostar.model
+  mapper-locations: mappers/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+server:
+  port: 8888
+  servlet:
+    context-path: /api
