@@ -1,8 +1,7 @@
 项目介绍
 
 ## 1开发环境和工具表
-
-![QQ截图20220219122446](C:\Users\xyh\Desktop\图片\QQ截图20220219122446.jpg)
+![image](https://github.com/yuanhang110/ZheyeProject/blob/main/%E5%9B%BE%E7%89%87/%E5%9B%BE%E7%89%870.jpg)
 
 ## 2系统用户角色分析
 
