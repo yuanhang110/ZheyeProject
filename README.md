@@ -40,4 +40,15 @@
 ![image](https://github.com/yuanhang110/ZheyeProject/blob/main/%E5%9B%BE%E7%89%87/%E5%9B%BE%E7%89%875.jpg)
 #### 6系统实现效果
 
-如视频
+##### 数据统计
+![image](https://github.com/yuanhang110/ZheyeProject/blob/main/%E5%9B%BE%E7%89%87/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1.jpg)
+##### 用户回答分析
+![image](https://github.com/yuanhang110/ZheyeProject/blob/main/%E5%9B%BE%E7%89%87/%E7%94%A8%E6%88%B7%E5%9B%9E%E7%AD%94%E5%88%86%E6%9E%90.jpg)
+##### 写回答
+![image](https://github.com/yuanhang110/ZheyeProject/blob/main/%E5%9B%BE%E7%89%87/%E5%86%99%E5%9B%9E%E7%AD%94.jpg)
+##### 用户管理
+![image](https://github.com/yuanhang110/ZheyeProject/blob/main/%E5%9B%BE%E7%89%87/%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86.jpg)
+##### 情感分析
+![image](https://github.com/yuanhang110/ZheyeProject/blob/main/%E5%9B%BE%E7%89%87/%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90%E5%8A%9F%E8%83%BD.jpg)
+##### 首页
+![image](https://github.com/yuanhang110/ZheyeProject/blob/main/%E5%9B%BE%E7%89%87/%E9%A6%96%E9%A1%B5.jpg)
