@@ -7,7 +7,7 @@
 
 如图，问答社区系统的用户分为两类，普通用户和管理员用户，他们在后台管理系统中起到的作用不同，在系统中的角色也不同。
 
-​                                     图3-1 系统相关角色
+​                                     系统相关角色
 
 ![image](https://github.com/yuanhang110/ZheyeProject/blob/main/%E5%9B%BE%E7%89%87/%E5%9B%BE%E7%89%871.jpg)
 
@@ -20,14 +20,13 @@
 如图所示，本系统分为两大子系统，包括问答社区子系统和后台管理子系统。问答社区子系统主要由用户使用，是哲也问答社区系统的核心部分。
 
 问答社区用例图
+![image](https://github.com/yuanhang110/ZheyeProject/blob/main/%E5%9B%BE%E7%89%87/%E5%9B%BE%E7%89%872.jpg)
 
-![图片2](C:\Users\xyh\Desktop\图片\图片2.jpg)后台管理社区用例图
-
-![图片3](C:\Users\xyh\Desktop\图片\图片3.jpg)
+后台管理社区用例图
+![image](https://github.com/yuanhang110/ZheyeProject/blob/main/%E5%9B%BE%E7%89%87/%E5%9B%BE%E7%89%873.jpg)
 
 #### 4系统架构设计
-
-![图片4](C:\Users\xyh\Desktop\图片\图片4.jpg)
+![image](https://github.com/yuanhang110/ZheyeProject/blob/main/%E5%9B%BE%E7%89%87/%E5%9B%BE%E7%89%874.jpg)
 
 客户端：移动端设备或PC端浏览器可以通过应用APP可以通过内置的WebView等插件渲染H5页面或原生页面向用户展示界面信息。
 
@@ -38,9 +37,7 @@
 持久层框架使用MyBatis，它简化了编写操作数据库代码的开发过程。它包括Mapper类、POJO实体类和mapper.xml，主要完成数据持久化的工作，可以实现对数据库的CRUD操作
 
 #### 5功能模块设计
-
-![图片5](C:\Users\xyh\Desktop\图片\图片5.jpg)
-
+![image](https://github.com/yuanhang110/ZheyeProject/blob/main/%E5%9B%BE%E7%89%87/%E5%9B%BE%E7%89%875.jpg)
 #### 6系统实现效果
 
 如视频
